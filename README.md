@@ -15,3 +15,8 @@
     * (x, y): the central of the rotation image
     * angle(theta): the angle of the rotation
     * scale: the size of the image zoomed
+
+## Perspective transformation
+### ``cv2.getPerspectiveTransform(position1, position2)``
+    * position1: the origin position(4 points)
+    * position2: the position you want to wrap(4 points)
