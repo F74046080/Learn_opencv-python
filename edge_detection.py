@@ -39,12 +39,35 @@ cv2.imshow('magnitude', screw_threshold)
 
 # theta_mat = np.degrees(np.arctan2(screw_sobely, screw_sobelx))
 theta_mat = np.arctan2(screw_sobely, screw_sobelx)*180/np.pi
+theta_mat = theta_mat.copy().astype(np.uint8)
 # print(screw_sobelx.shape)
 # print(theta_mat.shape)
-# print(np.where(theta_mat > 100))
-# print(theta_mat)
+# print(np.where(theta_mat > 20))
+print(theta_mat[0])
+theta = 40
+for i in range(theta_mat.shape[0]):
+    for j in range(theta_mat.shape[1]):
+        if theta_mat[i][j] > (theta+10) or theta_mat[i][j] < (theta-10):
+            theta_mat[i][j] = 0
+        else:
+            theta_mat[i][j] = 1
+# theta_mat[theta_mat[i] <= (theta+10)] = 1
+# theta_mat[theta_mat[i] <  (theta-10)] = 0 
+# print(np.where(theta_mat == 1))
+# screw_direction = screw_sobel.copy()
+print(theta_mat)
+screw_direction = np.multiply(theta_mat, screw_sobel)
+screw_direction2 = screw_direction.copy()
 
-
+# print(np.where(screw_direction > 100))
+# print(screw_direction2.dtype)
+# print(screw_direction2.shape)
+# print(type(screw_direction2))
+# print(screw_sobel.shape)
+# print(type(screw_sobel))
+cv2.imshow('Direction', screw_direction2)
+print(np.array_equal(screw_direction2, screw_sobel))
+# cv2.imshow('Direction', cv2.bitwise_and(theta_mat,screw_direction))
 # def direction_threshold(x):
 #     theta = cv2.getTrackbarPos('theta', 'orientation')
 # cv2.namedWindow('orientation')
