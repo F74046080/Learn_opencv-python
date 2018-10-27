@@ -47,5 +47,5 @@
 * position1: the origin position(4 points)
 * position2: the position you want to wrap(4 points)
 ### resize the image: ``cv2.resize(src, size)``
-	* src: target image
-	* size: the new size of the image
+* src: target image
+* size: the new size of the image
