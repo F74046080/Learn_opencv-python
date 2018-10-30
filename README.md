@@ -9,7 +9,7 @@
 	* src: the target image
 * flip image: ``cv2.flip(src, dst)``
 	* src: the target image
-	* dst: set 0, -1, 1 to rotate the image
+	* dst: set 0-vertical, 1-horizontal, -1-verical+horizontal to rotate the image
 * linear transformation: ``cv2.addWeighted``
 
 ## Adaptive Threshold
