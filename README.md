@@ -32,10 +32,10 @@
     * rows -> height   
     * columns -> width
 
-### translation: ``cv2.warpAffine(src, H, (rows, columns))``
+### Translation: ``cv2.warpAffine(src, H, size)``
 * src: the image which you want to transform
 * H: transform matrix
-* (rows, columns): the size after transform
+* size: the size(rows, columns) after transform
 
 ### rotation: ``cv2.getRotationMatrix2D((x, y), angle, scale)``
 * (x, y): the central of the rotation image
@@ -49,3 +49,18 @@
 ### resize the image: ``cv2.resize(src, size)``
 * src: target image
 * size: the new size of the image
+
+## Gaussian and Laplacian Pyramid
+### ``cv2.pyrDown(src, dst, size)``
+* src: the image which you want to do pyramid down
+* dst: the result image
+* size: the size of the dst
+
+### ``cv2.pyrUp(src, dst, size)`` 
+* src: the image which you want to do pyramid down
+* dst: the result image
+* size: the size of the dst
+
+### Add two images: ``cv2.add(src1, src2)``
+* src1, src2: the two pictures you want to add each other
+
