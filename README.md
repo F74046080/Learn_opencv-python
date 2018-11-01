@@ -64,3 +64,8 @@
 ### Add two images: ``cv2.add(src1, src2)``
 * src1, src2: the two pictures you want to add each other
 
+## Edge Detection
+* sobel: ``cv2.Sobel(src, cv2.CV_64F, x, y, size)``
+	* src: the image which you want to find the edge
+* laplacian: ``cv2.Laplacian(src, cv2.CV_64F)``
+* canny: ``cv2.Canny(src, threshold_low, threshold_high)``
