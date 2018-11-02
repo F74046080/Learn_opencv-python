@@ -14,11 +14,24 @@ laplacian = cv2.Laplacian(img_rmnoise, cv2.CV_64F)
 sobelx = cv2.Sobel(img_rmnoise, cv2.CV_64F, 1, 0, ksize=5)  # x
 sobely = cv2.Sobel(img_rmnoise, cv2.CV_64F, 0, 1, ksize=5)  # y
 sobel = cv2.Sobel(img_rmnoise, cv2.CV_64F, 1, 1, ksize=5)  # y
-canny = cv2.Canny(img_rmnoise, 50, 150)
 
 # cv2.imshow('laplacian', laplacian)
 # cv2.imshow('sobel x', sobelx)
 # cv2.imshow('sobel y', sobely)
-cv2.imshow('sobel', sobel)
+# cv2.imshow('sobel', sobel)
+
+def CannyThreshold(low):
+    canny = cv2.Canny(img_rmnoise, low, high*ratio, apertureSize = kernel_size)
+    dst = cv2.bitwise_and(canny, canny, mask = img_rmnoise)  # just add some colours to edges from original image.
+    cv2.imshow('canny', dst)
+
+low = 0
+high = 100
+ratio = 3
+kernel_size = 3
+canny = cv2.Canny(img_rmnoise, low, high, apertureSize = kernel_size)
+cv2.imshow('canny', canny)
+# cv2.namedWindow('canny')
+cv2.createTrackbar('Min threshold', 'canny', low, high, CannyThreshold)
 
 cv2.waitKey(0)
